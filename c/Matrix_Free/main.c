@@ -571,7 +571,7 @@ void Uzawa(int N,
     for(int i=0;i<dof_U;i++){
         tmp[i]=rhs_U[i]-tmp[i];
     }
-    int flag=cg(&A,U,tmp,1e-1,N*N);
+    int flag=cg(&A,U,tmp,1e-7,N*N);
     if(flag==-1){
         printf("CG not converge\n");
         return;
