@@ -1,3 +1,4 @@
+% Test Matrix Using True Solution
 function err=test_MatrixAssemble(N)
 h=1/N;
 tmpM1=diag(-2*ones(N-1,1))+diag(ones(N-2,1),1)+diag(ones(N-2,1),-1);
@@ -71,53 +72,5 @@ end
 b=[f;g;zeros(N*N,1)];
 x=[u;v;p];
 err=max(abs(M*x-b));
-
-% upU=zeros(N*N-N,N*N);
-% for j=1:N
-%     org=[(N-1),N]*(j-1);
-%     if j==1 || j==N
-%         upU(1+org(1),1+org(2))=1/2; upU(N-1+org(1),N+org(2))=-1/2;
-%     else
-%         upU(1+org(1),1+org(2))=1/3; upU(N-1+org(1),N+org(2))=-1/3;
-%     end
-%     for i=2:N-1
-%        if j==1 || j==N
-%             upU(i+org(1),i+org(2))=1/3; upU(i-1+org(1),i+org(2))=-1/3;
-%        else
-%             upU(i+org(1),i+org(2))=1/4; upU(i-1+org(1),i+org(2))=-1/4;
-%        end
-%     end
-% end
-% upV=zeros(N*N-N,N*N);
-% for j=1:N
-%     org=[N,N]*(j-1);
-%     if j==1
-%         upV(org(1)+1,org(2)+1)=1/2; upV(org(1)+N,org(2)+N)=1/2;
-%         for i=2:N-1
-%             upV(org(1)+i,org(2)+i)=1/3;
-%         end
-%     elseif j==N
-%         upV(org(1)+1-N,org(2)+1)=-1/2; upV(org(1),org(2)+N)=-1/2;
-%         for i=2:N-1
-%             upV(org(1)+i-N,org(2)+i)=-1/3;
-%         end
-%     else
-%         upV(org(1)+1,org(2)+1)=1/3; upV(org(1)+N,org(2)+N)=1/3;
-%         upV(org(1)+1-N,org(2)+1)=-1/3; upV(org(1),org(2)+N)=-1/3;
-%         for i=2:N-1
-%             upV(org(1)+i,org(2)+i)=1/4; upV(org(1)+i-N,org(2)+i)=-1/4;
-%         end
-%     end
-% end
-% u=rand(N*N-N,1);
-% v=rand(N*N-N,1);
-% r=B'*[u;v];
-% norm(r)
-% u=u+h*upU*r;
-% v=v+h*upV*r;
-% r=-B'*[u;v];
-% norm(r);
-
-
 
 end

@@ -1,0 +1,47 @@
+\section{Numerical Test}
+Set problem region $\Omega=[0,1]^2$，
+\begin{equation}
+    \begin{array}{l}
+        f(x,y)=-4\pi^2(2\cos(2\pi x)-1)\sin(2\pi y)+x^2\\
+        g(x,y)=\,\,\,\,\, 4\pi^2(2\cos(2\pi y)-1)\sin(2\pi x)\\
+    \end{array}
+\end{equation}
+So the true solution for (\ref{equ:continous}) is
+\begin{equation}
+    \begin{array}{l}
+        u(x,y)=\,\,\,\,\,(1-\cos(2\pi x))\sin(2\pi y)\\
+        v(x,y)=-(1-\cos(2\pi y))\sin(2\pi x)\\
+        p(x,y)=\,\,\,\,\,x^3/3-1/12\\
+    \end{array}
+\end{equation}
+The boundary condition is given accordingly. Numerical test results 
+are listed as followed,
+\begin{equation}
+    \nonumber
+    \begin{array}{C{3cm}|C{3.5cm}|C{3.5cm}|C{3.5cm}}
+      \hline
+      &\multicolumn{3}{c}{\text{DGS V-Cycle Results}}\\
+      \hline
+      Num   &n=128&n=256&n=512\\
+      \hline
+        1	& 8.31191e+00 & 1.04701e+01 & 1.37668e+01 \\
+        2	& 5.14701e-01 & 5.93665e-01 & 7.21926e-01 \\
+        3	& 3.79273e-02 & 4.12965e-02 & 4.67891e-02 \\
+        4	& 3.02427e-03 & 3.18206e-03 & 3.42251e-03 \\
+        5	& 2.53225e-04 & 2.61750e-04 & 2.72443e-04 \\
+        6	& 2.18033e-05 & 2.23540e-05 & 2.28567e-05 \\
+        7	& 1.90423e-06 & 1.94612e-06 & 1.97266e-06 \\
+        8	& 1.67320e-07 & 1.70904e-07 & 1.72546e-07 \\
+        9	& 1.47222e-08 & 1.50547e-08 & 1.51765e-08 \\
+        10  & 1.29381e-09 & 1.32663e-09 & 1.34501e-09 \\
+      \hline
+      L2 Error & 4.07741e-04 & 1.01930e-04 & 2.54820e-05 \\
+      \hline
+      Time/s& 1.02915e-01 & 3.85292e-01 & 1.69065e+00 \\
+      \hline
+    \end{array}
+  \end{equation}
+
+The L2 errors confirm second order convergence. And compare results 
+from case $n=128,256,512$, we'll see multigird method has a 
+rapid convergence rate which is irrelavent with the problem size. 
